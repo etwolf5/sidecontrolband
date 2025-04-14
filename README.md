@@ -55,11 +55,12 @@ You can customize the color scheme by editing the CSS variables in `styles.css`:
 
 ```css
 :root {
-    --dark-bg: #121212;
-    --dark-secondary: #1e1e1e;
-    --light-text: #f5f5f5;
-    --lavender: #9d7dff;
-    --lavender-light: #b39dff;
+    --dark-bg: #0A0A0A;               /* Matte black background */
+    --dark-secondary: #111111;        /* Soft charcoal for sections */
+    --light-text: #F5F5F5;            /* Soft white for high contrast */
+    --primary: #C77DFF;               /* Neon lavender for primary accent */
+    --accent: #FF6A3D;                /* Burnt orange for hover/CTA */
+    --muted: #999999;                 /* For subtle elements, dividers */
 }
 ```
 
