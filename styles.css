@@ -1,0 +1,407 @@
+:root {
+    --dark-bg: #0A0A0A;               /* Matte black background */
+    --dark-secondary: #111111;        /* Soft charcoal for sections */
+    --light-text: #F5F5F5;            /* Soft white for high contrast */
+    --primary: #C77DFF;               /* Neon lavender for primary accent */
+    --accent: #FF6A3D;                /* Burnt orange for hover/CTA */
+    --muted: #999999;                 /* For subtle elements, dividers */
+    /* --accent-gradient: linear-gradient(45deg, var(--accent), var(--accent-secondary)); */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/IMG_8464.png');
+    background-size: auto;
+    background-position: center 88%; /* Adjusted to show more of the middle/bottom of the image */
+    
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: -2;
+    filter: brightness(0.95);
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.9));
+    z-index: -1;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 500;  /* Lighter weight for more sleek appearance */
+    letter-spacing: 0.5px;  /* Tighter letter spacing */
+}
+
+a {
+    text-decoration: none;
+    color: var(--light-text);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+/* Navigation */
+header {
+    background-color: rgba(10, 10, 10, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+    background-color: rgba(10, 10, 10, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    color: var(--primary);
+    /* text-shadow: 0 0 5px rgba(242, 250, 253, 0.8); Bluish white glow */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    font-weight: 400;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--light-text); /* White text */
+    text-shadow: none; /* Removed glow effect */
+}
+
+.hero p {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    font-weight: 300;
+    color: var(--muted);
+}
+
+/* Sections */
+section {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    bottom: -10px;
+    left: 25%;
+    background: var(--primary);
+    box-shadow: 0 0 8px rgba(199, 125, 255, 0.5);
+}
+
+/* About Section */
+.about {
+    background-color: var(--dark-secondary);
+    position: relative;
+    z-index: 1;
+    margin-top: -1px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+/* Gallery Section */
+.gallery {
+    position: relative;
+    background-color: var(--dark-bg);
+    z-index: 2;
+}
+
+.gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-bg);
+    z-index: -1;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.photo-item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(199, 125, 255, 0.1);
+}
+
+.photo-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 20px rgba(255, 106, 61, 0.2), 0 0 0 1px var(--accent);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+
+/* For backwards compatibility with the placeholders */
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    opacity: 0.7;
+}
+
+/* Listen Section */
+.listen {
+    background-color: var(--dark-secondary);
+    position: relative;
+    z-index: 2;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.social-link {
+    padding: 1rem 2rem;
+    background-color: var(--dark-bg);
+    border: 2px solid var(--primary);
+    border-radius: 50px;
+    font-weight: 500; /* Less bold for more sleek look */
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--accent);
+    color: var(--light-text);
+    box-shadow: 0 0 15px rgba(255, 106, 61, 0.4);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--dark-bg);
+    border-top: 1px solid var(--muted);
+    position: relative;
+    z-index: 2;
+    color: var(--muted);
+}
+
+/* Animation Classes */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--dark-secondary);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s ease;
+        z-index: 1000;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-link {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+/* Apply muted color to about section for subtle contrast */
+.about-content p {
+    color: var(--light-text);
+}
+
+/* Additional styling for consistent look */
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+a:hover {
+    color: var(--accent);
+} 
